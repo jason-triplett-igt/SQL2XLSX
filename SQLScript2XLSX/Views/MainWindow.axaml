@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SQLScript2XLSX.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="450"
+        x:Class="SQLScript2XLSX.Views.MainWindow"
+		Title="Export SQL script to Excel"
+		x:CompileBindings="True"
+		x:DataType="vm:MainWindowViewModel"
+		SizeToContent="WidthAndHeight"
+		Icon="/Assets/equilateral.png">
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
+	<StackPanel>
+		<Label>Source Script:</Label>
+		<TextBox Width="800" Height="200" Text="{Binding Script}"
+				 HorizontalAlignment="Center" VerticalAlignment="Center"
+				 AcceptsReturn="True" Watermark="Paste Script Here"/>
+		<Border BorderBrush="Green" BorderThickness="1" Margin="5" />
+		<Label>Connection Info:</Label>
+		<DockPanel>
+			<Label>Datasource:</Label>
+			<TextBox Watermark="servername\instance" Text="{Binding Datasource}" />
+			<Label>Initial Catalog:</Label>
+			<TextBox Watermark="Playermanagement" Text="{Binding InitialCatalog}"></TextBox>
+			<Label>Integrated Security:</Label>
+			<CheckBox IsChecked="{Binding IntegratedSecurity}" />
+		</DockPanel>
+		<DockPanel IsVisible="{ReflectionBinding !IntegratedSecurity}">
+			<Label>User Name:</Label>
+			<TextBox Watermark="Username" Text="{Binding Username}"></TextBox>
+			<Label>Password:</Label>
+			<TextBox PasswordChar="*" Watermark="Password" Text="{Binding Password}"></TextBox>
+		</DockPanel>
+		<Border BorderBrush="Green" BorderThickness="1" Margin="5" />
+
+		<DockPanel>
+			<Label>Output:</Label>
+			<TextBox MinWidth="150" Text="{Binding OutputPath}" Watermark="C:\path"></TextBox>
+			<Button Command="{Binding SaveFileCommand}">Browse</Button>
+		</DockPanel>
+		<Button HorizontalAlignment="Right" Command="{Binding ExportDataCommand}">Export</Button>
+		<ProgressBar IsIndeterminate="True" IsVisible="{ReflectionBinding ExportDataCommand.IsExecuting^}" />
+		<TextBlock Text="{Binding ExceptionMessage}" />
+		<Button Command="{Binding CopyExceptionMessageToClipboardCommand}" IsVisible="{Binding !!ExceptionMessage.Length}">Copy Message</Button>
+		<Button Command="{Binding CancelExport}" IsVisible="{ReflectionBinding ExportDataCommand.IsExecuting^}">Cancel Export</Button>
+	</StackPanel>
+</Window>
