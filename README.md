@@ -30,7 +30,7 @@ SQLScript2XLSX is a modern Windows desktop application built with .NET 9 that si
 ## 🖥️ Screenshots
 
 <div align="center">
-  <img src="screenshots/application_screenshot.png" alt="SQLScript2XLSX Main Interface" width="80%">
+  <img src="Screenshots/application_screenshot.png" alt="SQLScript2XLSX Main Interface" width="80%">
 </div>
 
 ## 🚀 Getting Started
