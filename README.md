@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![SQLScript2XLSX Logo](https://via.placeholder.com/150x150.png?text=SQL2XLSX)
+![SQLScript2XLSX Logo](screenshots/application_logo.png)
 
 [![.NET](https://img.shields.io/badge/.NET-9.0-512BD4)](https://dotnet.microsoft.com/download)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -30,7 +30,7 @@ SQLScript2XLSX is a modern Windows desktop application built with .NET 9 that si
 ## 🖥️ Screenshots
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x450.png?text=SQLScript2XLSX+Screenshot" alt="SQLScript2XLSX Main Interface" width="80%">
+  <img src="screenshots/application_screenshot.png" alt="SQLScript2XLSX Main Interface" width="80%">
 </div>
 
 ## 🚀 Getting Started
